@@ -3,9 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Rueda GT – Autos de Performance Guatemala</title>
+<title>Rueda GT – Autos de Performance Guatemala · WRX, STI, S4, GTI</title>
+<meta name="description" content="Predio virtual de autos de performance en Guatemala. WRX, STI, S4, GTI, M3 y más. Traspaso inmediato, Visa Cuotas, inspección mecánica. Comprá y vendé con confianza.">
+<meta name="keywords" content="autos performance guatemala, wrx guatemala, sti guatemala, audi s4, golf gti, comprar auto guatemala, vender auto guatemala, rueda gt">
+<meta name="theme-color" content="#0A0A0A">
+<!-- Open Graph / WhatsApp / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rueda GT – Autos de Performance Guatemala">
+<meta property="og:description" content="Predio virtual de performance. WRX, STI, S4, GTI y más. Traspaso inmediato en Guatemala.">
+<meta property="og:site_name" content="Rueda GT">
+<meta property="og:locale" content="es_GT">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--red:#E30613;--red-dk:#B5001A;--red-glow:rgba(227,6,19,0.35);--black:#0A0A0A;--dark:#0f0f0f;--card:#141414;--white:#F8F6F2;--gray:#7a8291;--line:rgba(255,255,255,0.08)}
@@ -169,6 +180,127 @@ footer p{font-family:'Archivo Narrow',sans-serif;font-size:11px;letter-spacing:0
 /* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─── HERO RPM GAUGE ─── */
+.hero-gauge{position:absolute;bottom:160px;right:48px;width:220px;height:220px;z-index:1;pointer-events:none;opacity:0.9}
+.hero-gauge svg{width:100%;height:100%;filter:drop-shadow(0 0 20px rgba(227,6,19,0.3))}
+.hero-gauge .needle{transform-origin:110px 110px;animation:rev 3.5s ease-in-out infinite}
+@keyframes rev{
+  0%{transform:rotate(-130deg)}
+  20%{transform:rotate(20deg)}
+  30%{transform:rotate(-40deg)}
+  55%{transform:rotate(90deg)}
+  70%{transform:rotate(10deg)}
+  100%{transform:rotate(-130deg)}
+}
+.hero-gauge .redzone{stroke:var(--red);opacity:0.9}
+@media(max-width:900px){.hero-gauge{width:130px;height:130px;bottom:auto;top:100px;right:16px;opacity:0.55}}
+
+/* ─── WHY SECTION ─── */
+.why-section{padding:100px 40px;background:#0a0a0a;position:relative;z-index:1;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.why-inner{max-width:1200px;margin:0 auto}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;background:rgba(255,255,255,0.06)}
+.why-card{background:#0a0a0a;padding:36px 28px;transition:background .3s;position:relative;overflow:hidden}
+.why-card::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:var(--red);transition:width .5s ease}
+.why-card:hover{background:#111}
+.why-card:hover::before{width:100%}
+.why-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;color:var(--red);margin-bottom:20px;display:block}
+.why-icon{width:44px;height:44px;margin-bottom:18px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);color:var(--red)}
+.why-card h3{font-family:'Anton',sans-serif;font-size:22px;font-style:italic;text-transform:uppercase;margin-bottom:10px;line-height:1.05}
+.why-card p{font-family:'Archivo Narrow',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);line-height:1.6}
+
+/* ─── SEARCH BAR ─── */
+.search-wrap{padding:0 40px 20px;position:relative}
+.search-box{display:flex;align-items:center;gap:12px;background:#111;border:1px solid var(--line);padding:14px 20px;border-radius:2px;transition:border .2s}
+.search-box:focus-within{border-color:var(--red);box-shadow:0 0 0 4px rgba(227,6,19,0.08)}
+.search-box svg{color:var(--gray);flex-shrink:0}
+.search-box input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-family:'Archivo Narrow',sans-serif;font-size:15px;letter-spacing:0.02em}
+.search-box input::placeholder{color:rgba(255,255,255,0.35)}
+.search-clear{background:rgba(255,255,255,0.06);border:none;color:rgba(255,255,255,0.6);padding:4px 10px;border-radius:2px;cursor:pointer;font-family:'Archivo Narrow',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;display:none}
+.search-clear.show{display:block}
+.search-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray);letter-spacing:0.15em;padding:0 40px;margin-bottom:24px}
+.search-count b{color:var(--red)}
+
+/* ─── FAVORITES / COMPARE ─── */
+.card-fav{position:absolute;top:14px;left:14px;z-index:3;width:36px;height:36px;border-radius:50%;background:rgba(10,10,10,0.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;color:rgba(255,255,255,0.7)}
+.card-fav:hover{border-color:var(--red);color:var(--red);transform:scale(1.08)}
+.card-fav.active{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 4px 16px var(--red-glow)}
+.card-fav svg{width:16px;height:16px;fill:currentColor}
+
+.compare-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,10,0.96);backdrop-filter:blur(14px);border-top:1px solid var(--red);padding:16px 40px;display:flex;align-items:center;gap:20px;z-index:9996;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);flex-wrap:wrap}
+.compare-bar.show{transform:translateY(0)}
+.compare-bar .cb-title{font-family:'Anton',sans-serif;font-size:18px;font-style:italic;color:#fff}
+.compare-bar .cb-title b{color:var(--red)}
+.compare-slots{display:flex;gap:10px;flex:1;min-width:0;overflow-x:auto}
+.compare-slot{display:flex;align-items:center;gap:10px;background:#1a1a1a;border:1px solid var(--line);padding:6px 10px 6px 6px;border-radius:2px;flex-shrink:0}
+.compare-slot img{width:40px;height:30px;object-fit:cover;border-radius:2px}
+.compare-slot span{font-family:'Archivo Narrow',sans-serif;font-size:12px;color:#fff;white-space:nowrap;max-width:140px;overflow:hidden;text-overflow:ellipsis}
+.compare-slot button{background:none;border:none;color:var(--gray);cursor:pointer;font-size:16px;padding:0 4px}
+.compare-slot button:hover{color:var(--red)}
+.compare-actions{display:flex;gap:10px;flex-shrink:0}
+.compare-actions button{background:var(--red);color:#fff;border:none;font-family:'Archivo Narrow',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;padding:10px 20px;cursor:pointer;border-radius:2px;transition:background .2s}
+.compare-actions button:hover{background:#fff;color:var(--black)}
+.compare-actions .cb-clear{background:transparent;border:1px solid var(--line);color:var(--gray)}
+.compare-actions .cb-clear:hover{background:var(--line);color:#fff}
+
+/* ─── COMPARE MODAL ─── */
+.cm-overlay{display:none;position:fixed;inset:0;z-index:100001;background:rgba(0,0,0,0.92);backdrop-filter:blur(10px);overflow-y:auto;padding:40px 20px}
+.cm-overlay.open{display:block}
+.cm-box{max-width:1100px;margin:0 auto;background:#0f0f0f;border:1px solid var(--line);padding:40px}
+.cm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.cm-head h2{font-family:'Anton',sans-serif;font-size:32px;font-style:italic;text-transform:uppercase}
+.cm-head h2 span{color:var(--red)}
+.cm-close{background:none;border:none;color:#fff;font-size:28px;cursor:pointer;opacity:0.6}
+.cm-close:hover{opacity:1;color:var(--red)}
+.cm-grid{display:grid;gap:1px;background:var(--line)}
+.cm-row{display:grid;gap:1px;background:var(--line)}
+.cm-cell{background:#0f0f0f;padding:14px 16px;font-family:'Archivo Narrow',sans-serif;font-size:13px;display:flex;flex-direction:column;gap:4px}
+.cm-cell.head{padding:0;background:#1a1a1a}
+.cm-cell.head img{width:100%;height:140px;object-fit:cover;display:block}
+.cm-cell.head .info{padding:14px}
+.cm-cell.head b{font-family:'Anton',sans-serif;font-size:18px;font-style:italic;display:block}
+.cm-cell.head .p{color:var(--red);font-weight:700}
+.cm-cell.label{background:#1a1a1a;color:var(--gray);font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;justify-content:center}
+.cm-cell.best{color:var(--red)}
+
+/* ─── KONAMI / SECRET ADMIN ─── */
+#adminBtn{display:none!important}
+.secret-pulse{animation:secretGlow 1.2s ease}
+@keyframes secretGlow{0%,100%{text-shadow:none}50%{text-shadow:0 0 20px var(--red),0 0 40px var(--red)}}
+
+/* ─── IMPROVED HERO STATS ─── */
+.stat-item{position:relative}
+.stat-item .spark{position:absolute;top:0;right:-14px;width:6px;height:6px;background:var(--red);border-radius:50%;box-shadow:0 0 10px var(--red);animation:spark 1.4s ease-in-out infinite}
+@keyframes spark{0%,100%{opacity:0.3;transform:scale(0.8)}50%{opacity:1;transform:scale(1.3)}}
+
+/* ─── IMPROVED NAV LOGO ─── */
+.nav-avatar{height:42px;width:42px;border-radius:50%;object-fit:cover;margin-right:10px;border:2px solid var(--red);padding:1px;background:#0a0a0a}
+
+/* ─── ENHANCED CARD ANIMATIONS ─── */
+.car-card{position:relative}
+.car-card::after{content:'';position:absolute;inset:0;border:1px solid transparent;pointer-events:none;transition:border-color .3s}
+.car-card:hover::after{border-color:rgba(227,6,19,0.3)}
+
+/* ─── TOAST ─── */
+.toast{position:fixed;top:90px;left:50%;transform:translateX(-50%) translateY(-120%);background:var(--red);color:#fff;padding:12px 22px;font-family:'Archivo Narrow',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;z-index:100002;transition:transform .35s cubic-bezier(.4,0,.2,1);box-shadow:0 10px 40px rgba(0,0,0,0.5);visibility:hidden;opacity:0}
+.toast.show{transform:translateX(-50%) translateY(0);visibility:visible;opacity:1}
+
+/* ─── VIEW TOGGLE ─── */
+.view-toggle{display:flex;gap:2px;background:rgba(255,255,255,0.05);padding:2px;border-radius:2px;margin-left:8px}
+.view-btn{background:transparent;border:none;color:rgba(255,255,255,0.4);padding:6px 10px;cursor:pointer;display:flex;align-items:center;transition:all .2s;border-radius:2px}
+.view-btn:hover{color:#fff}
+.view-btn.active{background:var(--red);color:#fff}
+.view-btn svg{width:14px;height:14px}
+
+/* List view */
+.cars-grid.view-list{grid-template-columns:1fr}
+.cars-grid.view-list .car-card{display:grid;grid-template-columns:340px 1fr;gap:0}
+.cars-grid.view-list .card-photos{height:100%;min-height:260px}
+@media(max-width:700px){.cars-grid.view-list .car-card{grid-template-columns:1fr}.cars-grid.view-list .card-photos{min-height:220px}}
+
+/* ─── RED ACCENT CURSOR DOT ─── */
+.cursor-dot{position:fixed;width:8px;height:8px;background:var(--red);border-radius:50%;pointer-events:none;z-index:99999;mix-blend-mode:screen;transition:transform .15s ease,opacity .2s;opacity:0;box-shadow:0 0 20px var(--red)}
+@media(max-width:900px){.cursor-dot{display:none}}
 /* ADMIN */
 #adminBtn{position:fixed;bottom:28px;left:28px;z-index:9998;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.3);font-family:'Archivo Narrow',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:8px 14px;cursor:pointer;transition:all .25s;border-radius:4px}
 #adminBtn:hover{background:rgba(227,6,19,0.15);border-color:var(--red);color:var(--white)}
@@ -269,7 +401,7 @@ footer p{font-family:'Archivo Narrow',sans-serif;font-size:11px;letter-spacing:0
 
 <!-- NAV -->
 <nav class="nav" id="mainNav">
-  <div style="display:flex;align-items:center;gap:4px;"><img src="andresito.PNG" style="height:90px;width:90px;border-radius:50%;object-fit:cover;margin-right:6px;" alt="Andresito"><div class="nav-logo"><span class="lw">RUEDA</span><div class="div"></div><span class="lr">GT</span></div></div>
+  <div style="display:flex;align-items:center;gap:4px;"><div class="nav-avatar" style="display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-style:italic;font-size:18px;color:var(--red);background:#0a0a0a">R</div><div class="nav-logo"><span class="lw">RUEDA</span><div class="div"></div><span class="lr">GT</span></div></div>
   <div class="nav-links">
     <a href="#autos">Autos</a>
     <a href="#contacto">Contacto</a>
@@ -293,19 +425,101 @@ footer p{font-family:'Archivo Narrow',sans-serif;font-size:11px;letter-spacing:0
   <div class="hero-bg">
     <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1920" alt="Hero" referrerpolicy="no-referrer">
   </div>
+
+  <!-- RPM Gauge decorativo -->
+  <div class="hero-gauge" aria-hidden="true">
+    <svg viewBox="0 0 220 220">
+      <defs>
+        <linearGradient id="gg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#fff" stop-opacity="0.1"/>
+          <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <circle cx="110" cy="110" r="100" fill="url(#gg)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <circle cx="110" cy="110" r="86" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <!-- tick marks -->
+      <g stroke="rgba(255,255,255,0.35)" stroke-width="1.5">
+        <line x1="110" y1="20" x2="110" y2="32"/>
+        <line x1="54" y1="42" x2="62" y2="52"/>
+        <line x1="20" y1="110" x2="32" y2="110"/>
+        <line x1="54" y1="178" x2="62" y2="168"/>
+        <line x1="110" y1="200" x2="110" y2="188"/>
+        <line x1="166" y1="178" x2="158" y2="168"/>
+        <line x1="200" y1="110" x2="188" y2="110"/>
+        <line x1="166" y1="42" x2="158" y2="52"/>
+      </g>
+      <!-- redline arc -->
+      <path class="redzone" d="M 158 52 A 86 86 0 0 1 188 110" fill="none" stroke-width="3"/>
+      <path class="redzone" d="M 188 110 A 86 86 0 0 1 166 168" fill="none" stroke-width="3" opacity="0.6"/>
+      <!-- needle -->
+      <g class="needle">
+        <line x1="110" y1="110" x2="110" y2="32" stroke="#E30613" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="110" cy="110" r="8" fill="#E30613"/>
+        <circle cx="110" cy="110" r="3" fill="#0A0A0A"/>
+      </g>
+      <text x="110" y="140" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">RPM × 1000</text>
+      <text x="110" y="160" text-anchor="middle" fill="#E30613" font-family="Anton, sans-serif" font-style="italic" font-size="22">RUEDA GT</text>
+    </svg>
+  </div>
+
   <div class="hero-content">
     <div class="hero-eyebrow"><div class="line"></div><span>Guatemala · Autos de Performance</span></div>
     <h1>MANEJA<br><span class="outline">LO QUE</span><br><span class="red">QUIERES.</span></h1>
     <p class="hero-desc">Los mejores autos de performance en Guatemala. Carros modificados, preparados y listos para el siguiente dueño. Traspaso inmediato.</p>
     <div class="hero-btns">
       <a href="#autos" class="btn-red">Ver Autos Disponibles →</a>
-      <a href="https://wa.me/50246778504" target="_blank" class="btn-ghost">WhatsApp Directo</a>
+      <a href="https://wa.me/50246778504" target="_blank" rel="noopener" class="btn-ghost">WhatsApp Directo</a>
     </div>
   </div>
   <div class="hero-stats">
-    <div class="stat-item"><span>5</span><span>Años de Experiencia</span></div>
-    <div class="stat-item"><span>GT</span><span>Ubicación Local</span></div>
-    <div class="stat-item"><span>100%</span><span>Garantía de Traspaso</span></div>
+    <div class="stat-item"><span>+47</span><span>Autos Vendidos</span><div class="spark"></div></div>
+    <div class="stat-item"><span>24h</span><span>Traspaso Promedio</span></div>
+    <div class="stat-item"><span>100%</span><span>Papeles en Orden</span></div>
+    <div class="stat-item"><span>GT</span><span>Hecho en Guate</span></div>
+  </div>
+</section>
+
+<!-- WHY RUEDA GT -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="section-head" style="padding:0 0 40px">
+      <h2>LA DIFERENCIA <span class="red">RUEDA GT</span></h2>
+      <p>No vendemos carros. Conectamos gente con máquinas que valen la pena.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-num">/01</span>
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Papeles Verificados</h3>
+        <p>Antes de publicar, confirmamos que el auto tenga papeles limpios y al día. Si algo no cuadra, no sale al predio.</p>
+      </div>
+      <div class="why-card reveal" data-delay="100">
+        <span class="why-num">/02</span>
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Trato Directo</h3>
+        <p>Te conectamos directamente con el dueño. Sin intermediarios innecesarios, sin comisiones ocultas para el comprador.</p>
+      </div>
+      <div class="why-card reveal" data-delay="200">
+        <span class="why-num">/03</span>
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3zM5 7v13h14V7M9 11h6"/></svg>
+        </div>
+        <h3>Ficha Honesta</h3>
+        <p>Cada publicación muestra specs reales, fotos de verdad y notas claras: si está modificado, te lo decimos; si es stock, también.</p>
+      </div>
+      <div class="why-card reveal" data-delay="300">
+        <span class="why-num">/04</span>
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        </div>
+        <h3>Pago Flexible</h3>
+        <p>Algunos vendedores aceptan Visa Cuotas, negocios o pagos mixtos. Lo vas a ver claro en cada ficha del auto.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -316,6 +530,16 @@ footer p{font-family:'Archivo Narrow',sans-serif;font-size:11px;letter-spacing:0
     <p>Selección exclusiva de máquinas de alto desempeño · Guatemala City</p>
   </div>
   <div class="section-divider"></div>
+
+  <!-- SEARCH BAR -->
+  <div class="search-wrap">
+    <div class="search-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar por marca, modelo, especificación... (ej. 'WRX', '400HP', 'Quattro')">
+      <button class="search-clear" id="searchClear">Limpiar</button>
+    </div>
+  </div>
+
   <div class="cars-filters" id="carsFilters">
     <div class="filter-group">
       <button class="filter-btn active" data-brand="all">Todos</button>
@@ -327,7 +551,18 @@ footer p{font-family:'Archivo Narrow',sans-serif;font-size:11px;letter-spacing:0
         <option value="price-desc">Precio: mayor a menor</option>
       </select>
     </div>
+    <div class="view-toggle">
+      <button class="view-btn active" data-view="grid" title="Vista grilla">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </button>
+      <button class="view-btn" data-view="list" title="Vista lista">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      </button>
+    </div>
   </div>
+
+  <div class="search-count" id="searchCount"></div>
+
   <div class="cars-grid" id="carsGrid"><!-- rendered by JS --></div>
 </section>
 
@@ -369,10 +604,37 @@ footer p{font-family:'Archivo Narrow',sans-serif;font-size:11px;letter-spacing:0
     <a href="#autos">Autos</a>
     <a href="#contacto">Contacto</a>
     <a href="https://wa.me/50246778504" target="_blank">WhatsApp</a>
-    <a href="mailto:pabloajmonterroso@gmail.com">Email</a>
+    <a href="/cdn-cgi/l/email-protection#f08091929c9f919a9d9f9e849582829f839fb0979d91999cde939f9d">Email</a>
   </div>
   <p>© 2024 Rueda GT · Guatemala City</p>
 </footer>
+
+<!-- COMPARE BAR -->
+<div class="compare-bar" id="compareBar">
+  <div class="cb-title">Comparar <b id="cbCount">0</b>/3</div>
+  <div class="compare-slots" id="compareSlots"></div>
+  <div class="compare-actions">
+    <button class="cb-clear" onclick="clearCompare()">Limpiar</button>
+    <button onclick="openCompare()">Ver comparación →</button>
+  </div>
+</div>
+
+<!-- COMPARE MODAL -->
+<div class="cm-overlay" id="compareModal">
+  <div class="cm-box">
+    <div class="cm-head">
+      <h2>COMPARACIÓN <span>HEAD-TO-HEAD</span></h2>
+      <button class="cm-close" onclick="closeCompare()">&times;</button>
+    </div>
+    <div id="compareGrid"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- CURSOR DOT -->
+<div class="cursor-dot" id="cursorDot"></div>
 
 <!-- FLOATING WA -->
 <a href="https://wa.me/50246778504?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20de%20RuedaGT%2C%20me%20interesa%20vender%20mi%20auto." target="_blank" class="wa-float">
@@ -446,13 +708,13 @@ footer p{font-family:'Archivo Narrow',sans-serif;font-size:11px;letter-spacing:0
 <div class="lb-overlay" id="lightbox">
   <button class="lb-close" id="lbClose">&times;</button>
   <button class="lb-prev" id="lbPrev">&#8249;</button>
-  <div class="lb-img-wrap"><img id="lbImg" src="andresito.PNG" alt=""></div>
+  <div class="lb-img-wrap"><img id="lbImg" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt=""></div>
   <button class="lb-next" id="lbNext">&#8250;</button>
   <div class="lb-thumbs" id="lbThumbs"></div>
   <div class="lb-counter" id="lbCounter"></div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
 const HARDCODED = [{"brand": "Subaru", "model": "WRX Limited 2006", "sub": "Motor forjado · Base 500HP", "price": "Q85,000", "price_note": "Negociable · Traspaso obligatorio", "tags": ["Motor forjado", "500HP base", "Papeles en orden", "Traspaso obligatorio"], "img_srcs": ["", "", "", ""], "spec_rows": [{"label": "Motor", "value": "EJ257 Forjado", "highlight": true}, {"label": "Potencia base", "value": "500+ HP al crank", "highlight": true}, {"label": "Pistones", "value": "JE Pistons forjados", "highlight": false}, {"label": "Bielas", "value": "Semi-forjadas STI", "highlight": false}, {"label": "Turbo", "value": "IHI VF48 STI (armado VTRI)", "highlight": false}, {"label": "Intercooler", "value": "STI 2011-2015", "highlight": false}, {"label": "Inyectores", "value": "STI (recién servicio)", "highlight": false}, {"label": "Bomba gasolina", "value": "Walbro alto flujo", "highlight": false}, {"label": "Escape", "value": "Completo 3\" VTRI Motors", "highlight": false}, {"label": "Seteo", "value": "Custom por Percy", "highlight": false}, {"label": "Suspensión", "value": "Coilovers regulables", "highlight": false}, {"label": "Frenos", "value": "Brembo · 4/2 pistones", "highlight": false}, {"label": "Motor armado", "value": "Julio 2025", "highlight": false}]}, {"brand": "Audi", "model": "S4 2018 Prestige", "sub": "3.0T Twin Scroll · Quattro · Butacas masajeadoras", "price": "Q275,000", "price_note": "Acepta negocios · Visa Cuotas", "tags": ["Versión Prestige", "Quattro AWD", "Visa Cuotas", "Acepta negocios"], "img_srcs": ["", "", "", ""], "spec_rows": [{"label": "Motor", "value": "3.0 V6 Turbo Twin Scroll", "highlight": true}, {"label": "0-100 km/h", "value": "4.0 segundos", "highlight": true}, {"label": "Transmisión", "value": "Automática con paletas", "highlight": false}, {"label": "Tracción", "value": "Quattro AWD", "highlight": false}, {"label": "Aros", "value": "RIN 20 Prestige", "highlight": false}, {"label": "Frenos", "value": "S-Line rojos", "highlight": false}, {"label": "Cámaras", "value": "360° completo", "highlight": false}, {"label": "Suspensión", "value": "Impecable", "highlight": false}, {"label": "Servicios", "value": "Motor, caja y diferencial", "highlight": false}, {"label": "Papeles", "value": "En orden · Al día", "highlight": false}]}, {"brand": "Audi", "model": "S3 2017", "sub": "2.0 TSI · 400HP · Quattro · 0-100 en 4.1s", "price": "Q240,000", "price_note": "Negociable", "tags": ["400HP", "Quattro AWD", "Stage 1+", "Brembo naranja"], "img_srcs": ["", "", "", ""], "spec_rows": [{"label": "Motor", "value": "2.0 TSI Turbo · Stage 1+", "highlight": true}, {"label": "Potencia", "value": "400 HP", "highlight": true}, {"label": "Torque", "value": "480 Nm", "highlight": true}, {"label": "0-100 km/h", "value": "4.1 segundos", "highlight": true}, {"label": "Transmisión", "value": "S Tronic 7 vel automática", "highlight": false}, {"label": "Tracción", "value": "Quattro AWD", "highlight": false}, {"label": "Vel. máxima", "value": "250 km/h (limitada)", "highlight": false}, {"label": "Frenos", "value": "Disco ventilado · Brembo naranja", "highlight": false}, {"label": "Suspensión", "value": "Deportiva", "highlight": false}]}, {"brand": "Volkswagen", "model": "Golf GTI MK7 2017", "sub": "2.0 TSI · 335HP · Launch Control · 1er dueño GT", "price": "Q125,000", "price_note": "Negociable · Visa Cuotas", "tags": ["335HP", "APR Stage 1+", "Launch Control", "1er dueño GT"], "img_srcs": ["", "", "", ""], "spec_rows": [{"label": "Motor", "value": "2.0 Turbo TSI MQB", "highlight": true}, {"label": "Potencia", "value": "~335 HP", "highlight": true}, {"label": "Transmisión", "value": "DSG 6 vel + R automático", "highlight": false}, {"label": "Millaje", "value": "102,XXX millas", "highlight": false}, {"label": "Tune", "value": "APR Stage 1+ (con certificación)", "highlight": false}, {"label": "Downpipe", "value": "3.5\" CTS Turbo + Termotec", "highlight": false}, {"label": "Escape", "value": "Custom 3\" acero inox BRPerformance", "highlight": false}, {"label": "Intake", "value": "IE + Diverter GFB DV+", "highlight": false}, {"label": "Frenos", "value": "Akebono · Pastillas premium", "highlight": false}, {"label": "Launch Control", "value": "Activo", "highlight": true}]}, {"brand": "Subaru", "model": "WRX STI 2015 S209 Widebody", "sub": "EJ257 Forjado · 450HP dyno · Alex Tuning CR", "price": "Precio al DM", "price_note": "Escribe para precio · Traspaso obligatorio", "tags": ["450HP Dyno", "S209 Widebody", "Motor 600HP", "Papeles en orden"], "img_srcs": ["", "", ""], "spec_rows": [{"label": "Motor", "value": "EJ257 B25C-705 Forjado", "highlight": true}, {"label": "Potencia", "value": "450HP (384WHP dyno)", "highlight": true}, {"label": "Pistones", "value": "Wiseco Platinum 99.50MM Forjados", "highlight": false}, {"label": "Bielas", "value": "Manley H-Tuff Forjados", "highlight": false}, {"label": "Cigüeñal", "value": "Nitrado STI OEM Forjado", "highlight": false}, {"label": "Tornillos biela", "value": "ARP 2000", "highlight": false}, {"label": "Empaques culata", "value": "Cometic 101MM .051MM", "highlight": false}, {"label": "Intercooler", "value": "Mishimoto R-Line 800HP", "highlight": false}, {"label": "Inyectores", "value": "Dynamic Injectors 1050CC", "highlight": false}, {"label": "Bomba gasolina", "value": "AEM 340LPH", "highlight": false}, {"label": "Turbo", "value": "Externa Wastegate 45MM TurboSmart GEN40", "highlight": false}, {"label": "Seteo", "value": "Alex Tuning SA · Costa Rica · ECUTEK", "highlight": false}, {"label": "Mapas", "value": "3 custom + Launch Control + FlatfootShift", "highlight": false}, {"label": "Body", "value": "STI S209 Widebody 2018", "highlight": false}, {"label": "Aros", "value": "19x10 + Llantas Continental", "highlight": false}]}];
 const FB_API_KEY = 'AIzaSyDNKHCeJmwhNNsiSsLc1s8A7tUK0_kJMJY';
 const FB_ADMIN_EMAIL = 'admin@ruedagt.com';
@@ -527,9 +789,11 @@ const waIconSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="current
 
 function buildCard(car, i) {
   const allPhotos = (car.img_srcs||[]).slice(0,8);
-  const n = Math.min(allPhotos.length, 4);
+  const n = Math.min(allPhotos.length, 4) || 1;
   const extra = allPhotos.length > 4 ? allPhotos.length - 4 : 0;
-  const photos = allPhotos.slice(0,4).map((s,j) =>
+  const photos = allPhotos.length === 0
+    ? `<div class="photo-item" style="display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#444;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em">SIN FOTO</div>`
+    : allPhotos.slice(0,4).map((s,j) =>
     `<div class="photo-item">${j===3&&extra>0?`<div class="photo-more">+${extra}</div>`:''}
     <img src="${s}" alt="${car.model} ${j+1}" loading="lazy"></div>`).join('');
   const specs = (car.spec_rows||[]).slice(0,6).map(s =>
@@ -537,26 +801,146 @@ function buildCard(car, i) {
   const tags = (car.tags||[]).map(t => `<span class="tag">${t}</span>`).join('');
   const waNum = car.wa_number || '50246778504';
   const wa = `https://wa.me/${waNum}?text=Hola%2C%20me%20interesa%20el%20${encodeURIComponent(car.model)}`;
-  return `<div class="car-card reveal" data-delay="${i*100}">
-  <div class="card-photos photos-${n}">${photos}<span class="price-badge">${car.price}</span><div class="photo-overlay"></div></div>
+  const carKey = `${car.brand}-${car.model}`.replace(/\s+/g,'_');
+  const isFav = favorites.includes(carKey);
+  const inCompare = compareList.some(c => c._key === carKey);
+  return `<div class="car-card reveal" data-delay="${i*80}" data-carkey="${carKey}">
+  <div class="card-photos photos-${n}">
+    ${photos}
+    <button class="card-fav ${isFav?'active':''}" onclick="toggleFav('${carKey}', event)" title="Favorito">
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </button>
+    <span class="price-badge">${car.price}</span>
+    <div class="photo-overlay"></div>
+  </div>
   <div class="card-body">
-    <div class="card-top"><span class="card-brand">${car.brand}</span><a class="card-wa-btn" href="${wa}" target="_blank">${waIconSvg}</a></div>
+    <div class="card-top"><span class="card-brand">${car.brand}</span><a class="card-wa-btn" href="${wa}" target="_blank" rel="noopener">${waIconSvg}</a></div>
     <h3 class="card-title">${car.model}</h3>
-    <p class="card-sub">${car.sub}</p>
+    <p class="card-sub">${car.sub||''}</p>
     <div class="card-specs">${specs}</div>
     <div class="card-tags">${tags}</div>
-    <p class="card-note">${car.price_note}</p>
-    <a class="card-cta" href="${wa}" target="_blank">Consultar por WhatsApp →</a>
+    ${car.price_note?`<p class="card-note">${car.price_note}</p>`:''}
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <a class="card-cta" href="${wa}" target="_blank" rel="noopener">Consultar por WhatsApp →</a>
+      <button onclick="toggleCompare('${carKey}', event)" style="background:transparent;border:1px solid ${inCompare?'var(--red)':'var(--line)'};color:${inCompare?'var(--red)':'var(--gray)'};font-family:'Archivo Narrow',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:6px 12px;cursor:pointer;border-radius:2px;transition:all .2s">${inCompare?'✓ Comparando':'+ Comparar'}</button>
+    </div>
   </div>
 </div>`;
 }
 
+// Global reveal observer (for why-cards and other non-grid reveals)
+const globalRevealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), parseInt(e.target.dataset.delay||0));
+      globalRevealObs.unobserve(e.target);
+    }
+  });
+}, {threshold:0.1});
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.why-card.reveal, .testimonio-card.reveal, .reveal').forEach(el => {
+    if(!el.closest('#carsGrid')) globalRevealObs.observe(el);
+  });
+});
+
 let activeFilter = 'all';
 let activeSort = 'default';
+let activeView = localStorage.getItem('rgt_view') || 'grid';
+let searchQuery = '';
+let favorites = JSON.parse(localStorage.getItem('rgt_favs') || '[]');
+let compareList = [];
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function toggleFav(key, e) {
+  e.stopPropagation(); e.preventDefault();
+  const idx = favorites.indexOf(key);
+  if (idx >= 0) { favorites.splice(idx,1); showToast('Quitado de favoritos'); }
+  else { favorites.push(key); showToast('♥ Agregado a favoritos'); }
+  localStorage.setItem('rgt_favs', JSON.stringify(favorites));
+  renderCars();
+}
+
+function toggleCompare(key, e) {
+  e.stopPropagation(); e.preventDefault();
+  const idx = compareList.findIndex(c => c._key === key);
+  if (idx >= 0) { compareList.splice(idx,1); }
+  else {
+    if (compareList.length >= 3) { showToast('Máximo 3 autos para comparar'); return; }
+    const car = getCars().find(c => `${c.brand}-${c.model}`.replace(/\s+/g,'_') === key);
+    if (car) compareList.push({...car, _key: key});
+  }
+  updateCompareBar();
+  renderCars();
+}
+
+function clearCompare() { compareList = []; updateCompareBar(); renderCars(); }
+
+function updateCompareBar() {
+  const bar = document.getElementById('compareBar');
+  document.getElementById('cbCount').textContent = compareList.length;
+  const slots = document.getElementById('compareSlots');
+  slots.innerHTML = compareList.map(c => `
+    <div class="compare-slot">
+      <img src="${(c.img_srcs||[])[0]||''}" alt="">
+      <span>${c.model}</span>
+      <button onclick="toggleCompare('${c._key}', event)">×</button>
+    </div>`).join('');
+  bar.classList.toggle('show', compareList.length > 0);
+}
+
+function openCompare() {
+  if (compareList.length < 2) { showToast('Elegí al menos 2 autos'); return; }
+  const modal = document.getElementById('compareModal');
+  const grid = document.getElementById('compareGrid');
+  const allLabels = new Set();
+  compareList.forEach(c => (c.spec_rows||[]).forEach(s => allLabels.add(s.label)));
+  const labels = [...allLabels];
+  const cols = compareList.length;
+  const gridTpl = `200px ${'1fr '.repeat(cols).trim()}`;
+  // Header row
+  let html = `<div class="cm-row" style="grid-template-columns:${gridTpl}"><div class="cm-cell label" style="background:transparent">&nbsp;</div>` +
+    compareList.map(c => `<div class="cm-cell head"><img src="${(c.img_srcs||[])[0]||''}" alt=""><div class="info"><b>${c.model}</b><span style="color:var(--gray);font-size:11px">${c.brand}</span><span class="p">${c.price}</span></div></div>`).join('') + `</div>`;
+  // Spec rows
+  labels.forEach(lbl => {
+    html += `<div class="cm-row" style="grid-template-columns:${gridTpl}"><div class="cm-cell label">${lbl}</div>` +
+      compareList.map(c => {
+        const r = (c.spec_rows||[]).find(s => s.label === lbl);
+        return `<div class="cm-cell${r&&r.highlight?' best':''}">${r?r.value:'—'}</div>`;
+      }).join('') + `</div>`;
+  });
+  // WhatsApp row
+  html += `<div class="cm-row" style="grid-template-columns:${gridTpl}"><div class="cm-cell label">Contacto</div>` +
+    compareList.map(c => {
+      const waNum = c.wa_number || '50246778504';
+      const wa = `https://wa.me/${waNum}?text=Hola%2C%20me%20interesa%20el%20${encodeURIComponent(c.model)}`;
+      return `<div class="cm-cell"><a href="${wa}" target="_blank" rel="noopener" style="color:#25D366;text-decoration:underline">WhatsApp →</a></div>`;
+    }).join('') + `</div>`;
+  grid.innerHTML = html;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCompare() { document.getElementById('compareModal').classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('compareModal').addEventListener('click', e => { if(e.target.id==='compareModal') closeCompare(); });
 
 function parsePrice(p) {
   if(!p || p === 'Consultar' || p === 'Precio al DM') return Infinity;
   return parseInt(p.replace(/[^0-9]/g,'')) || Infinity;
+}
+
+function matchesSearch(car, q) {
+  if (!q) return true;
+  const hay = [car.brand, car.model, car.sub, car.price_note,
+    ...(car.tags||[]),
+    ...((car.spec_rows||[]).flatMap(s => [s.label, s.value]))
+  ].filter(Boolean).join(' ').toLowerCase();
+  return q.toLowerCase().split(/\s+/).every(term => hay.includes(term));
 }
 
 function updateFilterBtns() {
@@ -574,20 +958,28 @@ function updateFilterBtns() {
 
 function renderCars() {
   let cars = getCars();
+  const total = cars.length;
   updateFilterBtns();
-  // Filter
   if(activeFilter !== 'all') cars = cars.filter(c => c.brand === activeFilter);
-  // Sort
+  if(searchQuery) cars = cars.filter(c => matchesSearch(c, searchQuery));
   if(activeSort === 'price-asc') cars = [...cars].sort((a,b) => parsePrice(a.price) - parsePrice(b.price));
   if(activeSort === 'price-desc') cars = [...cars].sort((a,b) => parsePrice(b.price) - parsePrice(a.price));
   const grid = document.getElementById('carsGrid');
-  grid.innerHTML = cars.map(buildCard).join('');
+  grid.className = 'cars-grid view-' + activeView;
+  if (cars.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:80px 20px"><p style="font-family:'Anton',sans-serif;font-size:36px;font-style:italic;color:var(--gray);margin-bottom:12px">SIN RESULTADOS</p><p style="font-family:'Archivo Narrow',sans-serif;color:rgba(255,255,255,0.4);font-size:14px">Probá con otra búsqueda o limpiá los filtros.</p></div>`;
+  } else {
+    grid.innerHTML = cars.map(buildCard).join('');
+  }
+  // Count
+  const count = document.getElementById('searchCount');
+  if (count) count.innerHTML = searchQuery || activeFilter!=='all' ? `Mostrando <b>${cars.length}</b> de ${total} autos` : `<b>${total}</b> autos disponibles`;
   // Lightbox
   grid.querySelectorAll('.car-card').forEach(card => {
     const imgs = card.querySelectorAll('.photo-item img');
-    const carIdx = Array.from(document.querySelectorAll('.car-card')).indexOf(card);
-    const allSrcs = (getCars()[carIdx]?.img_srcs||[]).slice(0,8);
-    const srcs = allSrcs.length > 0 ? allSrcs : Array.from(imgs).map(i => i.src);
+    const key = card.dataset.carkey;
+    const srcArr = cars.find(c => `${c.brand}-${c.model}`.replace(/\s+/g,'_') === key)?.img_srcs || [];
+    const srcs = srcArr.length ? srcArr : Array.from(imgs).map(i => i.src);
     imgs.forEach((img, idx) => img.parentElement.addEventListener('click', () => lbOpen(srcs, idx)));
   });
   // Reveal
@@ -595,10 +987,60 @@ function renderCars() {
     entries.forEach(e => { if(e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), parseInt(e.target.dataset.delay||0)); obs.unobserve(e.target); } });
   }, {threshold:0.1});
   grid.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  // Sort listener
   const sel = document.getElementById('sortSelect');
   if(sel) { sel.value = activeSort; sel.onchange = () => { activeSort = sel.value; renderCars(); }; }
 }
+
+// Search + view + cursor + konami
+document.addEventListener('DOMContentLoaded', () => {
+  const si = document.getElementById('searchInput');
+  const sc = document.getElementById('searchClear');
+  if (si) {
+    si.addEventListener('input', e => {
+      searchQuery = e.target.value.trim();
+      sc.classList.toggle('show', !!searchQuery);
+      renderCars();
+    });
+    sc.addEventListener('click', () => { si.value=''; searchQuery=''; sc.classList.remove('show'); renderCars(); });
+  }
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.view === activeView);
+    btn.addEventListener('click', () => {
+      activeView = btn.dataset.view;
+      localStorage.setItem('rgt_view', activeView);
+      document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b === btn));
+      renderCars();
+    });
+  });
+  // Cursor dot
+  const dot = document.getElementById('cursorDot');
+  let dotVisible = false;
+  document.addEventListener('mousemove', e => {
+    dot.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+    if (!dotVisible) { dot.style.opacity = '0.6'; dotVisible = true; }
+  });
+  // Konami → admin
+  const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let kIdx = 0;
+  document.addEventListener('keydown', e => {
+    if (e.key.toLowerCase() === konami[kIdx].toLowerCase()) {
+      kIdx++;
+      if (kIdx === konami.length) {
+        kIdx = 0;
+        showToast('🔓 Modo admin desbloqueado');
+        setTimeout(() => apOpen(), 500);
+      }
+    } else { kIdx = e.key === konami[0] ? 1 : 0; }
+  });
+  // Secret click on logo (5 clicks)
+  let logoClicks = 0, logoTimer;
+  document.querySelector('.nav-logo')?.addEventListener('click', () => {
+    logoClicks++;
+    clearTimeout(logoTimer);
+    logoTimer = setTimeout(() => logoClicks = 0, 2000);
+    if (logoClicks >= 5) { logoClicks = 0; apOpen(); }
+  });
+});
 
 // ── NAV ──
 window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', scrollY > 60));
